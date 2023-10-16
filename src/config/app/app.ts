@@ -1,7 +1,7 @@
 import express from "express";
 import Config from "../config";
-import { RouteDefinition } from "../Interfaces/router-definition.interface";
 import AppController from "../../modules/app/app.controller";
+import { RouteDefinition } from "./Interfaces/router-definition.interface";
 
 export default class App {
   private app: express.Application;

@@ -1,5 +1,5 @@
-import { Get } from "../../config/decorators/method-decorators";
-import { Controller } from "../../config/decorators/class-decorators";
+import { Controller } from "../../config/app/decorators/class-decorators";
+import { Get } from "../../config/app/decorators/method-decorators";
 import { AppService } from "./app.service";
 
 @Controller("/app")
