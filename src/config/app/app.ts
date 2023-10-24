@@ -29,17 +29,21 @@ export default class App {
             ? route.path
             : prefix + route.path,
           async (req: express.Request, res: express.Response) => {
-            const response = await instance[route.methodName](req, res);
-            if (response) {
-              res.status(200).send(response);
+            try {
+              const response = await instance[route.methodName](req, res);
+              if (response) {
+                res.status(200).send(response);
+              }
+            } catch (error) {
+              console.log(error);
             }
           }
         );
       });
-      this.app.use(async (req: express.Request, res: express.Response) => {
-        res.status(404).send({
-          message: `Router ${req.path} of method ${req.method} not found!`,
-        });
+    });
+    this.app.use(async (req: express.Request, res: express.Response) => {
+      res.status(404).send({
+        message: `Router ${req.path} of method ${req.method} not found!`,
       });
     });
     this.app.listen(this.config.get("PORT"), () => {

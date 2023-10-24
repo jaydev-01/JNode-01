@@ -1,13 +1,8 @@
+import { RequestMethods } from "../enums/request-method.enum";
+
 export interface RouteDefinition {
-  path: string;
-  requestMethod:
-    | "get"
-    | "post"
-    | "put"
-    | "delete"
-    | "patch"
-    | "head"
-    | "options";
+  path?: string;
+  requestMethod: RequestMethods;
   methodName: string | symbol;
   overrideControllerPrefix: boolean;
 }

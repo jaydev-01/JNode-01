@@ -1,5 +1,5 @@
-import { Controller } from "../../config/app/decorators/class-decorators";
-import { Get } from "../../config/app/decorators/method-decorators";
+import { Controller } from "../../config/app/decorators/core";
+import { Get } from "../../config/app/decorators/http";
 import { AppService } from "./app.service";
 
 @Controller("/app")
@@ -11,5 +11,10 @@ export default class AppController {
   @Get("/")
   async get(): Promise<string> {
     return this.appService.get();
+  }
+
+  @Get("/hello")
+  async hello(): Promise<string> {
+    return "kesa hain";
   }
 }

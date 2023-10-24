@@ -1,8 +1,8 @@
-import { Controller } from "../../config/app/decorators/class-decorators";
+import { Controller } from "../../config/app/decorators/core";
 import {
   Get,
   OverrideControllerPrefix,
-} from "../../config/app/decorators/method-decorators";
+} from "../../config/app/decorators/http";
 
 @Controller("/users")
 export class UserController {
